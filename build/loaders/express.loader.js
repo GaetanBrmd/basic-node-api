@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const body_parser_1 = __importDefault(require("body-parser"));
+const helmet_1 = __importDefault(require("helmet"));
 const cors_1 = __importDefault(require("cors"));
 const api_1 = __importDefault(require("../api"));
 exports.default = ({ app }) => __awaiter(void 0, void 0, void 0, function* () {
@@ -21,6 +22,7 @@ exports.default = ({ app }) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(200).end();
     });
     app.use(cors_1.default());
+    app.use(helmet_1.default());
     app.use(body_parser_1.default.json());
     app.use('/api', api_1.default());
     //Error handlers
